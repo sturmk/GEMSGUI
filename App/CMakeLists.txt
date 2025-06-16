@@ -7,7 +7,7 @@ set_target_properties(gemsgui-app PROPERTIES
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
-  target_link_libraries (gemsgui-app PRIVATE GEMSGUI-static libzmq GEMS3K::GEMS3K-static)
+  target_link_libraries (gemsgui-app PRIVATE GEMSGUI-static)
 else()
   target_link_libraries (gemsgui-app PRIVATE GEMSGUI)
 endif()
@@ -50,7 +50,7 @@ if(USE_SPDLOG_PRECOMPILED)
     install(FILES "${dll_path}/msvcp140.dll" DESTINATION bin)
     install(FILES "${dll_path}/opengl32sw.dll" DESTINATION bin)
 
-    file(COPY "${CMAKE_SOURCE_DIR}/Resources" DESTINATION bin)
+    #file(COPY "${CMAKE_SOURCE_DIR}/Resources" DESTINATION bin)
 endif()
 
 endif()
