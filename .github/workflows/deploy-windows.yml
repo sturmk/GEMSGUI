@@ -34,7 +34,7 @@ jobs:
       - name: Get version from CMakeLists.txt
         id: get_version
         run: |
-         VERSION=$((grep -oP "project\(.*?VERSION\s*\K[0-9.]+" CMakeLists.txt))
+         VERSION=$((grep -oP "GEMSGUI.*?VERSION\s*\K[0-9.]+" CMakeLists.txt))
          echo "gems_version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Use version
