@@ -31,6 +31,15 @@ jobs:
           string(TIMESTAMP current_date "%Y-%m-%d" UTC)
           message("::set-output name=now::${current_date}")
 
+      - name: Get version from CMakeLists.txt
+        id: get_version
+        run: |
+         VERSION=$(grep -oP "project\(.*?VERSION\s*\K[0-9.]+" CMakeLists.txt)
+         echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Use version
+        run: echo "The project version is ${{ steps.get_version.outputs.VERSION }}"
+
       - name: Set deploy dir
         id: strings
         shell: bash
