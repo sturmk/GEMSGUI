@@ -34,7 +34,7 @@ jobs:
       - name: Get version from CMakeLists.txt
         id: get_version
         run: |
-         VERSION=$(grep -oP "project\(.*?VERSION\s*\K[0-9.]+" CMakeLists.txt)
+         VERSION=$(grep -oP "project\(.*?VERSION\s*\K[0-9.]+" CMakeLists.txt))
          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Use version
