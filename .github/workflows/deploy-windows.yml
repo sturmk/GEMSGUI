@@ -33,7 +33,7 @@ jobs:
 
       - name: Get version from CMakeLists.txt
         id: get_version
-        uses: DarwinInnovation/cmake-project-version-action
+        uses: DarwinInnovation/cmake-project-version-action@v1.0
 
       - name: Use version
         run: echo "The project version is ${{ steps.get_version.outputs.version }}"
