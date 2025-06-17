@@ -237,8 +237,8 @@ void HelpWindow::helpVersion()
 {
     QMessageBox::information( this,   QString("GEMSGUI v.") + GEMSGUI_VERSION,
                                  QString("\nThis is GEM-Selektor code package\n\n") +
-                                 QString::fromStdString(_GEMS_version_stamp)   +  "\n\n  using \n\n"  +
-                                 QString::fromStdString(_GEMIPM_version_stamp)   + "\n\nand  Qt6 framework v." + GEMSGUI_QT_VERSION +
+                                 QString::fromStdString(_GEMS_version_stamp) + "\n\n  using \n\n"  +
+                                 QString::fromStdString(_GEMIPM_version_stamp) + "\n\nand  Qt6 framework v." + GEMSGUI_QT_VERSION +
                                  "\n\n   OS " + GEMSGUI_OSX  + " compiler  " + GEMSGUI_COMPILER_ID + " " + GEMSGUI_COMPILER_VERSION +
                                  "\n\nFor GEMS R&D community, GPL v.3\n\n"
                                  "(c) 2025,  GEMS Development Team\n\n"
