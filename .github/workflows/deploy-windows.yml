@@ -33,11 +33,10 @@ jobs:
 
       - name: Get version from CMakeLists.txt
         id: get_version
-        run: |
-         echo "gems_version=$( grep -oP "GEMSGUI.*?VERSION\s*\K[0-9.]+" CMakeLists.txt )" >> "$GITHUB_OUTPUT"
+        uses: DarwinInnovation/cmake-project-version-action@v1
 
       - name: Use version
-        run: echo "The project version is ${{ steps.get_version.outputs.gems_version }}"
+        run: echo "The project version is ${{ steps.get_version.outputs.version }}"
 
       - name: Set deploy dir
         id: strings
