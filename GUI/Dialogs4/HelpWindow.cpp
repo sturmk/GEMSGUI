@@ -122,10 +122,14 @@ HelpWindow::HelpWindow( QWidget* parent):
     adressLine->setReadOnly( true );
     adressLine->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Fixed );
     ui->toolAddress->addWidget( adressLine );
-#endif  
+#endif
+
+    gui_logger->info("HelpWindow collectionFile= {}", collectionFile.toStdString());
 
     hEngine = new QHelpEngine(collectionFile, this);
     if (!hEngine->setupData()) {
+
+        gui_logger->error("Error QHelpEngine {}", hEngine->error().toStdString());
         delete hEngine;
         hEngine = nullptr;
         srchWidget =nullptr;
@@ -134,7 +138,7 @@ HelpWindow::HelpWindow( QWidget* parent):
     }
     else
     {
-        gui_logger->debug("HelpWindow collectionFile= {}", collectionFile.toStdString());
+        gui_logger->info("HelpWindow collectionFile= {}", collectionFile.toStdString());
 
         // Contents part
         wContents = hEngine->contentWidget();

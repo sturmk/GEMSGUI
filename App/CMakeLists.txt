@@ -49,6 +49,7 @@ if(USE_SPDLOG_PRECOMPILED)
     install(FILES "${dll_path}/vcruntime140.dll" DESTINATION bin)
     install(FILES "${dll_path}/msvcp140.dll" DESTINATION bin)
     install(FILES "${dll_path}/opengl32sw.dll" DESTINATION bin)
+    install(FILES "${dll_path}/sqlite3.dll" DESTINATION bin)
 
     #file(COPY "${CMAKE_SOURCE_DIR}/Resources" DESTINATION bin)
     install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
