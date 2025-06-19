@@ -24,19 +24,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Timestamp  # Idea from https://tinyurl.com/47wz7vpv
-        id: timestamp
-        shell: cmake -P {0}
-        run: |
-          string(TIMESTAMP current_date "%Y-%m-%d" UTC)
-          message("::set-output name=now::${current_date}")
-
       - name: Get version from CMakeLists.txt
         id: get_version
         uses: DarwinInnovation/cmake-project-version-action@v1.0
-
-      - name: Use version
-        run: echo "The project version is ${{ steps.get_version.outputs.version }}"
 
       - name: Set deploy name
         id: strings
@@ -47,9 +37,9 @@ jobs:
       - name: Set deploy dir
         id: strings2
         shell: bash
-        run: >
-          echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT" || goto :eof
-          echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT" || goto :eof
+        run: |
+          echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT"
+          echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT"
 
       - name: Setup Conda
         uses: conda-incubator/setup-miniconda@v3
