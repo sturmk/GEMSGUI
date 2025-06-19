@@ -74,14 +74,13 @@ jobs:
           cmake --build build --target install --config Release || goto :eof
 
       - name: Check deploy
-        shell: cmd
         run: |
           cd C:/Miniconda/envs/GEMSGUI/Library/bin
           ls
           cd ${{ github.workspace }}
           ls
-          Copy-Item -Path "${{ github.workspace }}/Resources/rungems3.bat" -Destination ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
-          Copy-Item -Path "${{ github.workspace }}/Resources/Readme3.txt" -Destination ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
+          cp "${{ github.workspace }}/Resources/rungems3.bat" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+          cp "${{ github.workspace }}/Resources/Readme3.txt"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
