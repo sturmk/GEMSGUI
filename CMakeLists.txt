@@ -79,6 +79,12 @@ if(GIT_FOUND)
     ERROR_QUIET
     OUTPUT_STRIP_TRAILING_WHITESPACE
     )
+    if(NOT GEMSGUI_VERSION_HASH)
+        set(GEMSGUI_VERSION_HASH "---")
+    endif()
+    if(NOT GEMSGUI_GIT_BRANCH)
+        set(GEMSGUI_GIT_BRANCH "---")
+    endif()
 else()
   set(GEMSGUI_VERSION_HASH "<unknown>")
   set(GEMSGUI_GIT_BRANCH "<unknown>")

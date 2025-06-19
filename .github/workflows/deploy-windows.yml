@@ -38,17 +38,18 @@ jobs:
       - name: Use version
         run: echo "The project version is ${{ steps.get_version.outputs.version }}"
 
-      - name: Set deploy dir
+      - name: Set deploy name
         id: strings
         shell: bash
         run: >
-          echo "deploy-output-dir=${{ github.workspace }}/deploy-windows" >> "$GITHUB_OUTPUT"
+          echo "deploy-name=GEMS${{ steps.get_version.outputs.version }}" >> "$GITHUB_OUTPUT"
 
       - name: Set deploy dir
         id: strings2
         shell: bash
         run: >
-          echo "deploy-output-name=gemsgui-windows-${{ github.sha }}-${{ steps.timestamp.outputs.now }}.zip" >> "$GITHUB_OUTPUT"
+          echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT"
+          echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT"
 
       - name: Setup Conda
         uses: conda-incubator/setup-miniconda@v3
@@ -69,25 +70,25 @@ jobs:
         run: |
           call conda activate GEMSGUI || goto :eof
           call conda-install-dependencies.bat || goto :eof
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ steps.strings.outputs.deploy-output-dir }} -A x64 -S . -B build  || goto :eof
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ steps.strings2.outputs.deploy-output-dir }} -A x64 -S . -B build  || goto :eof
           cmake --build build --target install --config Release || goto :eof
 
       - name: Check deploy
         run: |
           cd C:/Miniconda/envs/GEMSGUI/Library/bin
           ls
-          cd ${{ steps.strings.outputs.deploy-output-dir }}
+          cd ${{ steps.strings2.outputs.deploy-output-dir }}
           ls
 
       - name: Zipping files and folders
         shell: cmd
         run: |
           cd ${{ github.workspace }}
-          7z a ${{ steps.strings2.outputs.deploy-output-name }} deploy-windows
+          7z a ${{ steps.strings2.outputs.deploy-output-name }} ${{ steps.strings.outputs.deploy-name }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: windows-app
+          name: windows-${{ steps.strings.outputs.deploy-name }}
           path: ${{ steps.strings2.outputs.deploy-output-name }}
 

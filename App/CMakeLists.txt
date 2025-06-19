@@ -51,6 +51,8 @@ if(USE_SPDLOG_PRECOMPILED)
     install(FILES "${dll_path}/opengl32sw.dll" DESTINATION bin)
 
     #file(COPY "${CMAKE_SOURCE_DIR}/Resources" DESTINATION bin)
+    install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
+        DESTINATION ${CMAKE_INSTALL_BINDIR} )
 endif()
 
 endif()
