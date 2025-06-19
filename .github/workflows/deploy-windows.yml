@@ -48,8 +48,8 @@ jobs:
         id: strings2
         shell: bash
         run: >
-          echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT"
-          echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT"
+          echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT" || goto :eof
+          echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT" || goto :eof
 
       - name: Setup Conda
         uses: conda-incubator/setup-miniconda@v3
@@ -77,7 +77,9 @@ jobs:
         run: |
           cd C:/Miniconda/envs/GEMSGUI/Library/bin
           ls
-          cd ${{ steps.strings2.outputs.deploy-output-dir }}
+          cd ${{ github.workspace }}
+          ls
+          cd $GITHUB_WORKSPACE
           ls
 
       - name: Zipping files and folders
