@@ -46,7 +46,7 @@ jobs:
 
       - name: Set deploy dir
         id: strings2
-        shell: cmd
+        shell: bash
         run: >
           echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT" || goto :eof
           echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT" || goto :eof
@@ -79,8 +79,6 @@ jobs:
           cd C:/Miniconda/envs/GEMSGUI/Library/bin
           ls
           cd ${{ github.workspace }}
-          ls
-          cd $GITHUB_WORKSPACE
           ls
           Copy-Item -Path "${{ github.workspace }}/Resources/rungems3.bat" -Destination ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
           Copy-Item -Path "${{ github.workspace }}/Resources/Readme3.txt" -Destination ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
