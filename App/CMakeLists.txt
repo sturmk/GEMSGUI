@@ -1,18 +1,18 @@
 
-qt_add_executable(gemsgui-app  main.cpp)
+qt_add_executable(gem-selektor  main.cpp)
 
-set_target_properties(gemsgui-app PROPERTIES
+set_target_properties(gem-selektor PROPERTIES
     # WIN32_EXECUTABLE TRUE
     MACOSX_BUNDLE TRUE
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
-  target_link_libraries (gemsgui-app PRIVATE GEMSGUI-static libzmq GEMS3K::GEMS3K-static)
+  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static libzmq GEMS3K::GEMS3K-static)
 else()
-  target_link_libraries (gemsgui-app PRIVATE GEMSGUI)
+  target_link_libraries (gem-selektor PRIVATE GEMSGUI)
 endif()
 
-install(TARGETS gemsgui-app
+install(TARGETS gem-selektor
     BUNDLE  DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -51,15 +51,15 @@ if(USE_SPDLOG_PRECOMPILED)
     install(FILES "${dll_path}/opengl32sw.dll" DESTINATION bin)
     install(FILES "${dll_path}/sqlite3.dll" DESTINATION bin)
 
-    #file(COPY "${CMAKE_SOURCE_DIR}/Resources" DESTINATION bin)
-    install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
-        DESTINATION ${CMAKE_INSTALL_BINDIR} )
 endif()
+
+   install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
+           DESTINATION ${CMAKE_INSTALL_BINDIR} )
 
 endif()
 
 qt_generate_deploy_app_script(
-    TARGET gemsgui-app
+    TARGET gem-selektor
     OUTPUT_SCRIPT deploy_script
     NO_TRANSLATIONS
     NO_UNSUPPORTED_PLATFORM_ERROR

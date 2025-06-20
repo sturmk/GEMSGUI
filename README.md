@@ -179,7 +179,7 @@ cd ~/git/GEMS-Reaktoro/gemsreaktoro/build/bin
 
 The gems3k-client connects to the gems3k-server running on another computer or in a different process on this machine. It sends the input data for GEMS3K in ZeroMQ messages, the server calculates the GEM task and sends the results back to the client in a ZeroMQ message, then the standalone client prints the results and stops.
 
-5. To build and run the gemsgui-app graphical client (branch rkt-server)
+5. To build and run the gem-selektor graphical client (branch rkt-server)
 
 Install Qt5.15.4 from conda forge. Also install packages providing libGL (to prevent linking errors like "fatal error: GL/gl.h: No such file or directory" when building Qt GUI applications):
 
@@ -193,11 +193,11 @@ Now, clone the GEMSGUI Git repository.
 git clone https://<your_github_token>@github.com/gemshub/GEMSGUI.git && cd GEMSGUI
 mkdir -p build && cd build && cmake .. && make
 ```
-To start the gemsgui-app client, check the path to folder containing Resources (after the -s key of gemsgui-app), and then execute it:
+To start the gem-selektor client, check the path to folder containing Resources (after the -s key of gem-selektor), and then execute it:
 
 ```
 cd App
-./gemsgui-app -d -s /home/<your_user>/git/GEMS-Reaktoro/GEMSGUI -u /home/<your_user>/git/GEMS-Reaktoro/Data/Library/Gems3
+./gem-selektor -d -s /home/<your_user>/git/GEMS-Reaktoro/GEMSGUI -u /home/<your_user>/git/GEMS-Reaktoro/Data/Library/Gems3
 ```
 
 Note that the resources folder, e.g. /resources/projects/, should contain GEMS projects folders similar to those in /home/<your_user>/GEMS-Reaktoro/Data/Library/Gems3/projects for GEM-Selektor installation. Note: The folder "Data" in GEMS-Reaktoro must be created once, before starting GEMSGUI first time.
@@ -214,7 +214,7 @@ gems3k-server and rkt-server must be run in different processes or on different 
 
 ```
 cd ~/git/GEMS-Reaktoro/GEMSGUI/build/App
- ./gemsgui-app -d -s /home/kulik/git/GEMS-Reaktoro/GEMSGUI -u /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build/Library/Gems3
+ ./gem-selektor -d -s /home/kulik/git/GEMS-Reaktoro/GEMSGUI -u /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build/Library/Gems3
 [2022-10-18 11:42:58.127] [gems3gui] [info] Local    : /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build
 [2022-10-18 11:42:58.127] [gems3gui] [info] SysGEM   : /home/kulik/git/GEMS-Reaktoro/GEMSGUI/Resources/
 [2022-10-18 11:42:58.127] [gems3gui] [info] UserGEM  : /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build/Library/Gems3/
@@ -244,7 +244,7 @@ Execute... 0 NodeStatusCH = 2
 
 ```
 cd ~/git/GEMS-Reaktoro/GEMSGUI/build/App
- ./gemsgui-app -d -s /home/kulik/git/GEMS-Reaktoro/GEMSGUI -u /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build/Library/Gems3
+ ./gem-selektor -d -s /home/kulik/git/GEMS-Reaktoro/GEMSGUI -u /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build/Library/Gems3
 [2022-10-18 11:42:58.127] [gems3gui] [info] Local    : /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build
 [2022-10-18 11:42:58.127] [gems3gui] [info] SysGEM   : /home/kulik/git/GEMS-Reaktoro/GEMSGUI/Resources/
 [2022-10-18 11:42:58.127] [gems3gui] [info] UserGEM  : /home/kulik/git/GEMS-Reaktoro/GEMSGUI/build/Library/Gems3/
@@ -420,7 +420,7 @@ Conclusion 18.Oct.2022: Still not possible to compare the results between gems3k
 
 ToDo:
 
-< To Svitlana: Please, finalise the gemsreaktoro launcher so that it starts gems3k-server, rkt4gems-server and gemsgui-app, and kills them when a shutdown of gemsreaktoro is performed>
+< To Svitlana: Please, finalise the gemsreaktoro launcher so that it starts gems3k-server, rkt4gems-server and gem-selektor, and kills them when a shutdown of gemsreaktoro is performed>
 
 < To Svitlana and Allan: Please, check that the JSON lists for elements (ICNL), species (DCNL) and phases (PHNL) are read in correct order into rkt-server from "-dch.json" file>
 
