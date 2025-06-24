@@ -8,16 +8,17 @@ GEMSGUI is an interactive package for thermodynamic modelling of aquatic (geo)ch
 Distributed "as is" by the Laboratory for Waste Management (LES) of the Paul Scherrer Institute (PSI) with two purposes:
 
 * to promote the GEM method and software into research community;
+
 * to gather the users feedback - vital for making the software more functional and reliable.
 
 Permission to use the GEM-Selektor software is hereby granted free of charge for educational and research purposes, subject to acceptance of Terms and Conditions of Use. In particular, in any publication of your results obtained using the GEM-Selektor code, please, cite the web page (http://gems.web.psi.ch) and the following papers: 
 
 * Kulik D.A., Wagner T., Dmytrieva S.V., Kosakowski G., Hingerl F.F., Chudnenko K.V., Berner U. (2013): GEM-Selektor geochemical modeling package: revised algorithm and GEMS3K numerical kernel for coupled simulation codes. Computational Geosciences 17, 1-24.
+
 * Wagner T., Kulik D.A., Hingerl F.F., Dmytrieva S.V. (2012): GEM-Selektor geochemical modeling package: TSolMod library and data interface for multicomponent phase models. Canadian Mineralogist 50, 1173-1195.
 
 Version: currently 3.9.5.
 
-Learn more about GEM-Selektor from https://gems.web.psi.ch 
 
 ## GEM-Selektor v.3 for GEMS-Reaktoro project #
 
