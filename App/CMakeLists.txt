@@ -21,10 +21,22 @@ install(TARGETS gem-selektor
 if(DEFINED ENV{CONDA_PREFIX})
 
 message(STATUS "conda path: $ENV{CONDA_PREFIX}")
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
+
+if(${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
+
+   #set_source_files_properties(${SHADERS}
+   #     PROPERTIES
+   #     MACOSX_PACKAGE_LOCATION "Resources"
+   # )
+
+else()
+
+   install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
         DESTINATION ${CMAKE_INSTALL_BINDIR} )
-install(FILES ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
+   install(FILES ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
         DESTINATION ${CMAKE_INSTALL_BINDIR} )
+
+endif()
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 
