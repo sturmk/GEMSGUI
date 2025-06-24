@@ -18,11 +18,16 @@ install(TARGETS gem-selektor
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
+if(DEFINED ENV{CONDA_PREFIX})
+
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
+        DESTINATION ${CMAKE_INSTALL_BINDIR} )
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
+        DESTINATION ${CMAKE_INSTALL_BINDIR} )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 
-if(USE_SPDLOG_PRECOMPILED)
-    set(dll_path "C:/Miniconda/envs/GEMSGUI/Library/bin")
+    set(dll_path "$ENV{CONDA_PREFIX}\Library\bin")
     message(STATUS "dll path: ${dll_path}")
     message(STATUS "conda path: $ENV{CONDA_PREFIX}")
     install(FILES "${dll_path}/GEMS3K.dll" DESTINATION bin)
@@ -50,11 +55,7 @@ if(USE_SPDLOG_PRECOMPILED)
     install(FILES "${dll_path}/msvcp140.dll" DESTINATION bin)
     install(FILES "${dll_path}/opengl32sw.dll" DESTINATION bin)
     install(FILES "${dll_path}/sqlite3.dll" DESTINATION bin)
-
 endif()
-
-   install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
-           DESTINATION ${CMAKE_INSTALL_BINDIR} )
 
 endif()
 

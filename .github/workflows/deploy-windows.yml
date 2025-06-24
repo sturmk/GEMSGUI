@@ -2,7 +2,7 @@ name: deploy-windows
 on:
   push:
     branches:
-      - no_client_mode1
+      - no_client_mode
   release:
     types:
       - published
@@ -69,7 +69,7 @@ jobs:
           cd ${{ github.workspace }}
           ls
           cp "${{ github.workspace }}/Resources/rungems3.bat" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
-          cp "${{ github.workspace }}/Resources/Readme3.txt"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+          cp "${{ github.workspace }}/Resources/README.md"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
