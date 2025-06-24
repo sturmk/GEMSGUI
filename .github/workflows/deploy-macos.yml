@@ -1,8 +1,8 @@
-name: deploy-windows
+name: deploy-macos
 on:
   push:
     branches:
-      - no_client_mode1
+      - no_client_mode
   release:
     types:
       - published
@@ -15,9 +15,9 @@ jobs:
       fail-fast: false
 
       matrix:
-        os: [ windows-latest ]
-        conda_platform: [ win-64 ]
-        artifact_name: [ gemsgui-windows ]
+        os: [ macos-13 ]
+        conda_platform: [ osx-64 ]
+        artifact_name: [ gemsgui-macos ]
 
     steps:
 
@@ -39,7 +39,6 @@ jobs:
         shell: bash
         run: |
           echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app" >> "$GITHUB_OUTPUT"
-          echo "deploy-output-name=windows-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT"
 
       - name: Setup Conda
         uses: conda-incubator/setup-miniconda@v3
@@ -55,25 +54,26 @@ jobs:
           conda install conda-devenv
           conda devenv
 
-      - name: Building, Testing & Installing GEMSGUI (Windows)
-        shell: cmd
+      - name: Building, Testing & Installing GEMSGUI
+        if: matrix.os != 'windows-latest'
+        shell: bash -l {0}
         run: |
-          call conda activate GEMSGUI || goto :eof
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ steps.strings2.outputs.deploy-output-dir }} -A x64 -S . -B build  || goto :eof
-          cmake --build build --target install --config Release || goto :eof
+          conda activate GEMSGUI
+          mkdir .build && cd .build
+          cmake -GNinja .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ steps.strings2.outputs.deploy-output-dir }}
+          ninja
+          ninja install
 
       - name: Check deploy
         run: |
-          cd C:/Miniconda/envs/GEMSGUI/Library/bin
-          ls
           cd ${{ github.workspace }}
           ls
-          cp "${{ github.workspace }}/Resources/rungems3.bat" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+          cp "${{ github.workspace }}/Resources/rungems3.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
           cp "${{ github.workspace }}/Resources/README.md"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: windows-${{ steps.strings.outputs.deploy-name }}
+          name: macos-${{ steps.strings.outputs.deploy-name }}
           path: ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
 
