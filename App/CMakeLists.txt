@@ -28,7 +28,7 @@ install(FILES ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 
-    set(dll_path "$ENV{CONDA_PREFIX}/Library/bin")
+    set(dll_path "C:/Miniconda/envs/GEMSGUI/Library/bin")
     message(STATUS "dll path: ${dll_path}")
     install(FILES "${dll_path}/GEMS3K.dll" DESTINATION bin)
     install(FILES "${dll_path}/ChemicalFun.dll" DESTINATION bin)
