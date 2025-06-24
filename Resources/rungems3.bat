@@ -9,12 +9,9 @@ gem-selektor.exe > gems3.log
 rem or 
 rem gem-selektor.exe -s . -u C:\Users\<USER>\Library\Gems3 > gems3.log
 
-rem 2a. The above is equivalent to
-rem gem-selektor.exe -s .\Gems3-app\bin -u C:\Users\<USER>\Library\Gems3 > gems3.log
-
 rem 3. New file configuration if project subfolder(s) were added/removed to/from
 rem   /projects or if /projects are not in the default location
-rem gem-selektor.exe -c -s . -u G:\My_GEMS_Projects_Location\Gems3 > gems3.log
+rem gem-selektor.exe -c -s <Path_to_Resources> -u G:\My_GEMS_Projects_Location\Gems3 > gems3.log
 
 rem 4. New \data\*.ini files - remake DOD and module dialog configurators
 rem Otherwise, does the same as  gems3 -c

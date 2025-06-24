@@ -20,16 +20,16 @@ install(TARGETS gem-selektor
 
 if(DEFINED ENV{CONDA_PREFIX})
 
+message(STATUS "conda path: $ENV{CONDA_PREFIX}")
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
         DESTINATION ${CMAKE_INSTALL_BINDIR} )
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
+install(FILES ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
         DESTINATION ${CMAKE_INSTALL_BINDIR} )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 
     set(dll_path "$ENV{CONDA_PREFIX}\Library\bin")
     message(STATUS "dll path: ${dll_path}")
-    message(STATUS "conda path: $ENV{CONDA_PREFIX}")
     install(FILES "${dll_path}/GEMS3K.dll" DESTINATION bin)
     install(FILES "${dll_path}/ChemicalFun.dll" DESTINATION bin)
     install(FILES "${dll_path}/ThermoFun.dll" DESTINATION bin)
