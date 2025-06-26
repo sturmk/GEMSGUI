@@ -15,7 +15,7 @@
         ],
         "module_level": {
             "chemicalfun": "err",
-            "gems3gui": "debug",
+            "gems3gui": "info",
             "ipm": "warn",
             "thermofun": "err"
         },
