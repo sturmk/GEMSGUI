@@ -1,6 +1,6 @@
 ## GEM-Selektor v.3 
 
-This 'GEMSGUI' repository contains the source code and default resources for [GEM-Selektor v.3](https://gemshub.github.io/site/) - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in 'GEMS3K'  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
+This GEMSGUI repository contains the source code and default resources for [GEM-Selektor v.3](https://gemshub.github.io/site/) - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
 
 ### Briefly about GEM-Selektor v.3 
 
