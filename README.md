@@ -1,6 +1,6 @@
 ## GEM-Selektor v.3 
 
-This GEMSGUI repository contains the source code and default resources for GEM-Selektor v.3 - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
+This 'GEMSGUI' repository contains the source code and default resources for [GEM-Selektor v.3](https://gemshub.github.io/site/) - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in 'GEMS3K'  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
 
 ### Briefly about GEM-Selektor v.3 
 
@@ -10,24 +10,17 @@ Distributed "as is" by the Laboratory for Waste Management (LES) of the Paul Sch
 
 * to gather the users feedback - vital for making the software more functional and reliable.
 
-* Qt widget application written in C++ and [Qt6](https://www.qt.io/).
-
-* Version: currently 3.10.0.
-
 Permission to use the GEM-Selektor software is hereby granted free of charge for educational and research purposes, subject to acceptance of Terms and Conditions of Use. In particular, in any publication of your results obtained using the GEM-Selektor code, please, cite the web page (http://gems.web.psi.ch) and the following papers: 
 
 * Kulik D.A., Wagner T., Dmytrieva S.V., Kosakowski G., Hingerl F.F., Chudnenko K.V., Berner U. (2013): GEM-Selektor geochemical modeling package: revised algorithm and GEMS3K numerical kernel for coupled simulation codes. Computational Geosciences 17, 1-24.
 
 * Wagner T., Kulik D.A., Hingerl F.F., Dmytrieva S.V. (2012): GEM-Selektor geochemical modeling package: TSolMod library and data interface for multicomponent phase models. Canadian Mineralogist 50, 1173-1195.
 
+Qt widget application written in C++ and [Qt6](https://www.qt.io/).
 
-### License
+Version: currently 3.10.0.
 
-GEMSGUI is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-GEMSGUI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public License along with GEMSGUI code. If not, see http://www.gnu.org/licenses/. 
+GEM-Selektor graphical user interface is available under GNU General Public License (GPL) v3.
 
 
 ### How to clone (download) the GEMSGUI source code
@@ -42,7 +35,7 @@ git clone https://github.com/gemshub/GEMSGUI.git
 
 ### Building using Conda
 
-GEMSGUI can be easily built using [Conda](https://conda.io/docs/) package manager. Conda can be installed from [Miniconda](https://conda.io/miniconda.html).
+GEM-Selektor can be easily built using [Conda](https://conda.io/docs/) package manager. Conda can be installed from [Miniconda](https://conda.io/miniconda.html).
 Before building `GEMSGUI`, make sure you have the `conda-devenv` tool installed. Otherwise, run the following command in a terminal (assuming here that `conda` is already installed!):
 
 ```sh
@@ -62,7 +55,7 @@ Once this step is successfully completed, you can activate the `GEMSGUI` conda e
 conda activate GEMSGUI
 ```
 
-Now it's time to use `cmake` to configure and build the `GEM-Selektor` application:
+Now it's time to use `cmake` to configure and build the GEM-Selektor application:
 
 ```sh
 cmake -S . -B build
@@ -72,7 +65,8 @@ cmake --build build --parallel
 This step will produce `gem-selector` application inside the created directory `GEMSGUI/build/App`:
 
 
-### How to build the `GEM-Selektor` application on Linux or Mac OS
+
+### How to build the GEM-Selektor application on Linux or Mac OS
 
 * Make sure that [Qt6](https://www.qt.io/try-qt) and CMake are installed in your system.
 
@@ -83,7 +77,7 @@ This step will produce `gem-selector` application inside the created directory `
 sudo apt-get install g++ cmake git libssl-dev libtool byacc flex
 ```
 
-For Mac OSX, make sure you have Homebrew installed (see [Homebrew web site](http://brew.sh) and [Homebrew on Mac OSX El Capitan](http://digitizor.com/install-homebrew-osx-el-capitan/) ).
+For Mac OSX, make sure you have Homebrew installed (see [Homebrew web site](http://brew.sh) ).
 
 * Install Dependencies
 
@@ -102,15 +96,15 @@ cmake .. -DCMAKE_INSTALL_PREFIX=<deploy_path>  -DCMAKE_PREFIX_PATH=/home/<you>/Q
 make -j 4
 ```
 
-### How to run the `GEM-Selektor` application
+### How to run the GEM-Selektor application
 
-* To run Qt `GEM-Selektor` application, execute the following (or use *GEMSGUI/gems3gui.pro* with QtCreator):
+* To run Qt GEM-Selektor application, execute the following (or use *GEMSGUI/gems3gui.pro* with QtCreator):
 
 ```sh
 ./GEMSGUI/build/App/gem-selektor
 ```
 
-* For more details about command line parameters, see into 'GEMSGUI/Resouces/rungems3.sh' or 'GEMSGUI/Resouces/rungems3.bat'
+* For more details about command line parameters, see into *GEMSGUI/Resouces/rungems3.sh* or *GEMSGUI/Resouces/rungems3.bat*
 
 ```sh
 #  Change the path to the actual location of gem-selektor executable and Resources
@@ -136,7 +130,7 @@ cd ./Gems3-app/bin
 # (for developers only!)
 ```
 
-### How to use `GEM-Selektor` application
+### How to use GEM-Selektor application
 
 For information on using  application take a look into the https://gemshub.github.io/site/.
 
