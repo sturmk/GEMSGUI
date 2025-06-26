@@ -68,7 +68,7 @@ This step will produce `gem-selector` application inside the created directory `
 
 ### How to build the GEM-Selektor application on Linux or Mac OS
 
-* Make sure that [Qt6](https://www.qt.io/try-qt) and CMake are installed in your system.
+* Make sure that [Qt6](https://www.qt.io/try-qt) is installed in your system.
 
 * Make sure you have g++, cmake and git installed. If not, install them.  On Ubuntu linux terminal, this can be done using the following commands:
 
