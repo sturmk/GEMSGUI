@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-      - master
+      - master1
 jobs:
   build:
     runs-on: ${{ matrix.os }}

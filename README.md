@@ -3,6 +3,14 @@
 This GEMSGUI repository contains the source code and default resources for [GEM-Selektor v.3](https://gemshub.github.io/site/) - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
 
 
+
+- [How to clone(download) the GEMSGUI source code](#how-to-clone-download-the-gemsgui-source-code)
+- [Building using Conda](#building-using-conda)
+- [How to build on Linux or Mac OS](#how-to-build-on-linux-or-mac-os)
+- [How to run the application](#how-to-run-the-application)
+- [How to use the application](#how-to-use-the-application)
+
+
 ### Briefly about GEM-Selektor v.3 
 
 Distributed "as is" by the Laboratory for Waste Management (LES) of the Paul Scherrer Institute (PSI) with two purposes:
@@ -22,15 +30,6 @@ Qt widget application written in C++ and [Qt6](https://www.qt.io/).
 Version: currently 3.10.0.
 
 GEM-Selektor graphical user interface is available under GNU General Public License (GPL) v3.
-
-
-- [How to clone(download) the GEMSGUI source code](#how-to-clone-download-the-gemsgui-source-code)
-- [Building using Conda](#building-using-conda)
-- [How to build on Linux or Mac OS](#how-to-build-on-linux-or-mac-os)
-- [How to run the application](#how-to-run-the-application)
-- [How to use the application](#how-to-use-the-application)
-
-
 
 ### How to clone(download) the GEMSGUI source code
 
