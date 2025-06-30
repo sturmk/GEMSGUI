@@ -78,3 +78,13 @@ jobs:
           name: linux-${{ steps.strings.outputs.deploy-name }}
           path: ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
 
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}.zip
+          asset_name: ${{ steps.strings2.outputs.deploy-output-name }}
+          asset_content_type: application/zip
+
