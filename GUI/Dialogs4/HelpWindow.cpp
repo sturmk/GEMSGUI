@@ -46,6 +46,8 @@
 static const char *GEMS_HOWHELP_HTML = "gems_miscel.html#HOWHELP";
 const char *GEMS_ABOUT_HTML = "gems_about.html#PAGE_ABOUT";
 
+extern const char* _GEMIPM_version_stamp;
+
 HelpWindow* HelpWindow::pDia = nullptr;
 
 HelpWindow::HelpWindow( QWidget* parent):
