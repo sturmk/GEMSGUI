@@ -1,8 +1,8 @@
-## GEM-Selektor v.3 
+# GEM-Selektor graphical user interface (GEMSGUI)
 
-This GEMSGUI repository contains the source code and default resources for [GEM-Selektor v.3](https://gemshub.github.io/site/) - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
+This repository contains the source code and default resources for [GEM-Selektor](https://gemshub.github.io/site/) with graphical user interface (GEMSGUI)- the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using the GEM-Standalone (GEMS3K) ![Conda Version](https://img.shields.io/conda/v/conda-forge/gems3k?label=gems3k) chemical solver.
 
-### Briefly about GEM-Selektor v.3 
+## Briefly about GEM-Selektor v.3 
 
 Distributed "as is" by the Laboratory for Waste Management (LES) of the Paul Scherrer Institute (PSI) with two purposes:
 
@@ -18,12 +18,13 @@ Permission to use the GEM-Selektor software is hereby granted free of charge for
 
 Qt widget application written in C++ and [Qt6](https://www.qt.io/).
 
-Version: currently 3.10.0.
+Latest version: ![GitHub Tag](https://img.shields.io/github/v/tag/gemshub/GEMSGUI?label=GEMSGUI)
 
-GEM-Selektor graphical user interface is available under GNU General Public License (GPL) v3.
+GEM-Selektor graphical user interface (GEMSGUI) is available under GNU General Public License (GPL) v3.
 
+## Build and run GEMSGUI from source code
 
-### How to clone (download) the GEMSGUI source code
+### Clone (download) the GEMSGUI source code
 
 * Open a terminal and in the command line run:
 
@@ -32,10 +33,9 @@ git clone https://github.com/gemshub/GEMSGUI.git
 
 ```
 
-
 ### Building using Conda
 
-GEM-Selektor can be easily built using [Conda](https://conda.io/docs/) package manager. Conda can be installed from [Miniconda](https://conda.io/miniconda.html).
+GEM-Selektor can be easily built using [Conda](https://conda.io/docs/) package manager. Conda can be installed from [Miniconda](https://conda.io/miniconda.html) or [Miniforge](https://github.com/conda-forge/miniforge/releases).
 Before building `GEMSGUI`, make sure you have the `conda-devenv` tool installed. Otherwise, run the following command in a terminal (assuming here that `conda` is already installed!):
 
 ```sh
@@ -64,9 +64,10 @@ cmake --build build --parallel
 
 This step will produce `gem-selector` application inside the created directory `GEMSGUI/build/App`:
 
+Now you can run the [GEMSGUI](#how-to-run-the-gem-selektor-application) application
 
 
-### How to build the GEM-Selektor application on Linux or Mac OS
+### How to build the GEM-Selektor application using Qt on Linux or Mac OS
 
 * Make sure that [Qt6](https://www.qt.io/try-qt) is installed in your system.
 
@@ -104,7 +105,7 @@ make -j 4
 ./GEMSGUI/build/App/gem-selektor
 ```
 
-* For more details about command line parameters, see into *GEMSGUI/Resouces/rungems3.sh* or *GEMSGUI/Resouces/rungems3.bat*
+* For more details about command line parameters, see into *GEMSGUI/Resources/rungems3.sh* or *GEMSGUI/Resources/rungems3.bat*
 
 ```sh
 #  Change the path to the actual location of gem-selektor executable and Resources
@@ -130,7 +131,16 @@ cd ./Gems3-app/bin
 # (for developers only!)
 ```
 
-### How to use GEM-Selektor application
+### How to build and run GEM-Selektor application using Qt Creator
+
+Mace sure you have [Qt6](https://www.qt.io/try-qt) with Wt Creator installed. Start Qt Creator and open `gems3gui.pro` (using prebuilt gems3k) or `gems3gui_with_gems3k_source.pro` (for building together with gems3k code).
+
+Select the desired build and run locations. Copy folder `Resources` to the build location.
+
+In the Qt project Run settings in the command line arguments add e.g., `-d -f -s /home/<user>/path/to/build-gems3gui-Desktop_Qt`. Help on the arguments can be found in `Resources/doc/html/gems_setup.html`
+
+
+## How to use GEM-Selektor application
 
 For information on using  application take a look into the https://gemshub.github.io/site/.
 
