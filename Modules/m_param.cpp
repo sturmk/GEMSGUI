@@ -43,7 +43,7 @@
 TProfil* TProfil::pm;
 
 const std::string _GEMS_version_stamp = std::string(" GEMS-GUI v.") + GEMSGUI_VERSION + " c." + GEMSGUI_VERSION_HASH;
-extern const char* _GEMIPM_version_stamp;
+//extern const std::string _GEMIPM_version_stamp;
 
 SPP_SETTING pa_ = {
     " Tolerances and controls: GEMSGUI v.x.x.x  and " " GEMS3K v.x.x.x ",
