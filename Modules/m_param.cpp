@@ -186,7 +186,7 @@ void TProfil::ChangeSettings(int nSettings)
             pa.p = dfBase[min(nSettings-2,5)];
     // Added by DK 16.02.2012
     std::string pa_ver = _GEMS_version_stamp;
-    pa_ver += _GEMIPM_version_stamp;
+         pa_ver += "";//_GEMIPM_version_stamp;
     memcpy(pa.ver, pa_ver.c_str(), TDBVERSION-1);
     pa.ver[TDBVERSION-1]='\0';
 }
