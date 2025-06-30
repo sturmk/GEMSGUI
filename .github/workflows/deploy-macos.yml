@@ -39,6 +39,7 @@ jobs:
         shell: bash
         run: |
           echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}" >> "$GITHUB_OUTPUT"
+          echo "deploy-output-name=macos-${{ steps.strings.outputs.deploy-name }}.zip" >> "$GITHUB_OUTPUT"
 
       - name: Setup Conda
         uses: conda-incubator/setup-miniconda@v3
@@ -84,7 +85,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}.zip
+          asset_path: ${{ github.workspace }}/${{ steps.strings2.outputs.deploy-output-name }}
           asset_name: ${{ steps.strings2.outputs.deploy-output-name }}
           asset_content_type: application/zip
 
