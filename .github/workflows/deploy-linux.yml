@@ -2,7 +2,7 @@ name: deploy-linux
 on:
   push:
     branches:
-      - no_client_mode1
+      - no_client_mode
   release:
     types:
       - published
@@ -68,6 +68,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           ls
+          cp -r "${{ github.workspace }}/Resources" "${{ steps.strings2.outputs.deploy-output-dir }}"
           cp "${{ github.workspace }}/Resources/rungems3.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
           cp "${{ github.workspace }}/Resources/README.md"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
 

@@ -1,6 +1,14 @@
 # GEM-Selektor graphical user interface (GEMSGUI)
 
-This repository contains the source code and default resources for [GEM-Selektor](https://gemshub.github.io/site/) with graphical user interface (GEMSGUI)- the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using the GEM-Standalone (GEMS3K) ![Conda Version](https://img.shields.io/conda/v/conda-forge/gems3k?label=gems3k) chemical solver.
+This repository contains the source code and default resources for [GEM-Selektor](https://gemshub.github.io/site/) with graphical user interface (GEMSGUI)- the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using the GEM-Standalone ![Conda Version](https://img.shields.io/conda/v/conda-forge/gems3k?label=gems3k) chemical solver.
+
+
+- [Building using Conda](#building-using-conda)
+- [How to build on Linux or Mac OS](#how-to-build-the-gem-selektor-application-using-qt-on-linux-or-mac-os)
+- [How to run the application](#how-to-run-the-application)
+- [How to build and run GEM-Selektor application using Qt Creator](#how-to-build-and-run-gem-selektor-application-using-qt-creator)
+- [How to use the application](#how-to-use-gem-selektor-application)
+
 
 ## Briefly about GEM-Selektor v.3 
 
@@ -97,7 +105,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=<deploy_path>  -DCMAKE_PREFIX_PATH=/home/<you>/Q
 make -j 4
 ```
 
-### How to run the GEM-Selektor application
+### How to run the application
 
 * To run Qt GEM-Selektor application, execute the following (or use *GEMSGUI/gems3gui.pro* with QtCreator):
 

@@ -104,6 +104,9 @@ TVisor::TVisor(int c, char *v[]):
        // By default: /Resources in the same dir as the exe file;
        //       /Library/gems3/projects on the same level as the /Gems3-app dir.
     QString dirExe = QCoreApplication::applicationDirPath();
+    if(dirExe.endsWith("/bin") || dirExe.endsWith("\bin")) { // Try found Resource up level
+        dirExe.chop(4);
+    }
     SysGEMDir = dirExe.toStdString();
     SysGEMDir += RESOURCES_DIR;
     //ServerGems3Dir = dirExe.toStdString();
@@ -125,6 +128,9 @@ TVisor::TVisor(int c, char *v[]):
       // By default: /Resources in the same dir as the exe file;
       //       /Library/gems3/projects on the same level as the /Gems3-app dir.
     QString dirExe = QCoreApplication::applicationDirPath();
+    if(dirExe.endsWith("/bin") || dirExe.endsWith("\bin")) { // Try found Resource up level
+        dirExe.chop(4);
+    }
     SysGEMDir = dirExe.toStdString();
     SysGEMDir += RESOURCES_DIR;
     QDir dirUp(dirExe);

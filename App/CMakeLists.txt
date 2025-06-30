@@ -31,8 +31,8 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES "Clang")
 
 else()
 
-   install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
-        DESTINATION ${CMAKE_INSTALL_BINDIR} )
+   #install(DIRECTORY ${PROJECT_SOURCE_DIR}/Resources
+   #     DESTINATION ${CMAKE_INSTALL_BINDIR} )
    install(FILES ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.ico
         DESTINATION ${CMAKE_INSTALL_BINDIR} )
 
