@@ -25,7 +25,7 @@ Version: currently 3.10.0.
 
 Before you can start GEM-Selektor from command line for the first time, please edit the file rungems3.bat(.sh) (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
 
-Suppose that you have installed GEMS3 in "D:\MyWork\Modeling\". Open the rungems3.bat file in text editor; the file begins with the following lines:
+Suppose that you have installed GEMS3 in "D:\MyWork\Modeling\GEMS3.10.0". Open the rungems3.bat file in text editor; the file begins with the following lines:
 
 	echo off
         rem  Change the path to the actual location of gem-selektor executable and Resources
@@ -45,7 +45,7 @@ To create a Windows desktop shortcut to launch GEM-Selektor from this location, 
 To add the icon and command line parameters, right-click on the new shortcut icon, select "Properties", append the command-line parameters (such as in the rungems3.bat) into "Target" field, then click "Change icon", and browse to
 "D:\MyWork\Modeling\Gems3-app\Resources\Gems3.ico". You should see now the GEMS icon; click "Ok". The shortcut will now appear as GEMS icon, double-click to start the program. 
 
-DISCLAIMER: thermodynamic data bases in test modeling projects provided in this installation are provisional and undocumented. The Development Team accepts no liability of any kind for any losses or invonveniences that may result from use of the data provided in modeling projects for testing and educational purposes. No garantee is given that the input data in test projects are, in fact, accurate. 
+DISCLAIMER: thermodynamic data bases in test modeling projects provided in this installation are provisional and undocumented. The Development Team accepts no liability of any kind for any losses or inconveniences that may result from use of the data provided in modeling projects for testing and educational purposes. No guarantee is given that the input data in test projects are, in fact, accurate. 
 
 Enjoy GEM-Selektor!
 

@@ -2,6 +2,7 @@
 
 This repository contains the source code and default resources for [GEM-Selektor](https://gemshub.github.io/site/) with graphical user interface (GEMSGUI)- the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using the GEM-Standalone ![Conda Version](https://img.shields.io/conda/v/conda-forge/gems3k?label=gems3k) chemical solver.
 
+[![ci-build](https://github.com/gemshub/GEMSGUI/actions/workflows/ci-build.yml/badge.svg)](https://github.com/gemshub/GEMSGUI/actions/workflows/ci-build.yml)
 
 - [Building using Conda](#building-using-conda)
 - [How to build on Linux or Mac OS](#how-to-build-the-gem-selektor-application-using-qt-on-linux-or-mac-os)
