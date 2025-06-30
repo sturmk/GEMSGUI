@@ -2,6 +2,7 @@
 
 This GEMSGUI repository contains the source code and default resources for [GEM-Selektor v.3](https://gemshub.github.io/site/) - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K  [![Conda Forge](https://anaconda.org/conda-forge/gems3k/badges/version.svg)](https://anaconda.org/conda-forge/gems3k) chemical solver.
 
+
 ### Briefly about GEM-Selektor v.3 
 
 Distributed "as is" by the Laboratory for Waste Management (LES) of the Paul Scherrer Institute (PSI) with two purposes:
@@ -23,7 +24,15 @@ Version: currently 3.10.0.
 GEM-Selektor graphical user interface is available under GNU General Public License (GPL) v3.
 
 
-### How to clone (download) the GEMSGUI source code
+- [How to clone(download) the GEMSGUI source code](#how-to-clone-download-the-gemsgui-source-code)
+- [Building using Conda](#building-using-conda)
+- [How to build on Linux or Mac OS](#how-to-build-on-linux-or-mac-os)
+- [How to run the application](#how-to-run-the-application)
+- [How to use the application](#how-to-use-the-application)
+
+
+
+### How to clone(download) the GEMSGUI source code
 
 * Open a terminal and in the command line run:
 
@@ -66,7 +75,7 @@ This step will produce `gem-selector` application inside the created directory `
 
 
 
-### How to build the GEM-Selektor application on Linux or Mac OS
+### How to build on Linux or Mac OS
 
 * Make sure that [Qt6](https://www.qt.io/try-qt) is installed in your system.
 
@@ -96,7 +105,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=<deploy_path>  -DCMAKE_PREFIX_PATH=/home/<you>/Q
 make -j 4
 ```
 
-### How to run the GEM-Selektor application
+### How to run the application
 
 * To run Qt GEM-Selektor application, execute the following (or use *GEMSGUI/gems3gui.pro* with QtCreator):
 
@@ -130,7 +139,7 @@ cd ./Gems3-app/bin
 # (for developers only!)
 ```
 
-### How to use GEM-Selektor application
+### How to use the application
 
 For information on using  application take a look into the https://gemshub.github.io/site/.
 
