@@ -30,21 +30,24 @@
 #include "visor.h"
 #include "GEMS3K/gdatastream.h"
 #include "nodearray_gui.h"
+#include "gemsgui_version.h"
 
+#ifdef USE_GEMS3K_SERVER
 #ifdef NO_ASYNC_SERVER
 #include "gemsreaktoro/zmq_req_client.hpp"
 #else
 #include "gemsreaktoro/zmq_client.hpp"
 #endif
+#endif
 
 TProfil* TProfil::pm;
 
-extern const char *_GEMS_version_stamp;
-extern const char *_GEMIPM_version_stamp;
+const std::string _GEMS_version_stamp = std::string(" GEMS-GUI v.") + GEMSGUI_VERSION + " c." + GEMSGUI_VERSION_HASH;
+//extern const std::string _GEMIPM_version_stamp;
 
 SPP_SETTING pa_ = {
-    " Tolerances and controls: GEMSGUI v.3.9.1  and " " GEMS3K v.3.9.1 ",
-    {   // Typical default set (24.03.2020) new PSSC( logSI ) & uDD()
+    " Tolerances and controls: GEMSGUI v.x.x.x  and " " GEMS3K v.x.x.x ",
+    {   // Typical default set (30.06.2025) new PSSC( logSI ) & uDD(), 0.7,   /* AG */   -0.0065,
         2,  /* PC */  2,     /* PD */   -4,   /* PRD */
         1,  /* PSM  */ 130,  /* DP */   1,   /* DW */
         0, /* DT */     30000,   /* PLLG */   1,  /* PE */  9999, /* IIM */
@@ -52,8 +55,8 @@ SPP_SETTING pa_ = {
         1e-5,  /* DK */  0.01,  /* DF */  0.01,  /* DFM */
         1e-5,  /* DFYw */  1e-5,  /* DFYaq */    1e-5,  /* DFYid */
         1e-5,  /* DFYr,*/  1e-5,  /* DFYh,*/   1e-5,  /* DFYc,*/
-        1e-6, /* DFYs, */  1e-17,  /* DB */   1.,   /* AG */
-        0.,   /* DGC */   1.0,   /* GAR */  1000., /* GAH */
+        1e-6, /* DFYs, */  1e-17,  /* DB */   0.7,   /* AG */
+        -0.0065,   /* DGC */   1.0,   /* GAR */  1000., /* GAH */
         1e-3, /* GAS */   12.05,  /* DNS */   1e-13,  /* XwMin, */
         1e-13,  /* ScMin, */  1e-33, /* DcMin, */   1e-20, /* PhMin, */
         1e-5,  /* ICmin */   1e-10,  /* EPS */   1e-3,  /* IEPS */
@@ -249,8 +252,8 @@ TProfil::TProfil( uint nrt ):
     SBold = nullptr;
     Llold =nullptr;
 
-    //userCancel = false;
-    //stepWise = false;
+    userCancel1 = false;
+    stepWise1 = false;
     calcFinished = false;
     comp_change_all = false;
     internalBufer = nullptr;
@@ -609,8 +612,9 @@ void TProfil::CmReadMulti(const char* path)
     pmp->TC = pmp->TCc;
     pmp->T =  pmp->Tc;
     pmp->P =  pmp->Pc;
-    //pmp->VX_ = pmp->VXc; // from cm3 to m3
-
+#ifndef USE_GEMS3K_SERVER
+    pmp->VX_ = pmp->VXc; // from cm3 to m3
+#endif
     // Set T and P  for key from DataBr
     ChangeTPinKey( pmp->TC, pmp->P );
 
@@ -647,8 +651,13 @@ void TProfil::CmReadMulti(const char* path)
     multi_internal->TMultiBase::DC_LoadThermodynamicData(&na);
 
     // Unpack the pmp->B vector (b) into syp->BI and syp->BI (BI_ vector).
-    for( long i=0; i < pmp->N; i++ )
-        /*syp->BI[pmp->mui[i]] =*/ syp->B[pmp->mui[i]] = pmp->B[i];
+
+    for( long i=0; i < pmp->N; i++ ) {
+#ifndef  USE_GEMS3K_SERVER
+        syp->BI[pmp->mui[i]] =
+#endif
+        syp->B[pmp->mui[i]] = pmp->B[i];
+    }
 
     for( long jj, j=0; j < pmp->L; j++ )
     {
@@ -1015,7 +1024,7 @@ long int TProfil::testMulti()
 }
 moved to TMulti*/
 
-
+#ifdef USE_GEMS3K_SERVER
 // Run process of calculate equilibria into the GEMSGUI shell
 void  TProfil::CalculateEquilibriumGUI()
 {
@@ -1029,7 +1038,7 @@ void  TProfil::CalculateEquilibriumGUI()
     zmqclient.run_task();
 }
 
-
+#endif
 
 // GEM IPM calculation of equilibrium state in MULTI
 // without testing changes in the system
@@ -1041,8 +1050,11 @@ double TProfil::ComputeEquilibriumState( /*long int& NumPrecLoops,*/ long int& N
 
   //multi->Access_GEM_IMP_init();
   //outMultiTxt( "Reaktoro_before.dump.txt"  );
+#ifdef USE_GEMS3K_SERVER
   CalculateEquilibriumGUI( );
-  //multi->CalculateEquilibriumState( /*0,*/ NumIterFIA, NumIterIPM );
+#else
+  multi_internal->CalculateEquilibriumState( /*0,*/ NumIterFIA, NumIterIPM );
+#endif
   //outMultiTxt( "Reaktoro_after.dump.txt"  );
 
   calcFinished = true;

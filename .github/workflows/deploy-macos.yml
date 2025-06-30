@@ -1,0 +1,80 @@
+name: deploy-macos
+on:
+  push:
+    branches:
+      - no_client_mode1
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os: [ macos-13 ]
+        conda_platform: [ osx-64 ]
+        artifact_name: [ gemsgui-macos ]
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get version from CMakeLists.txt
+        id: get_version
+        uses: DarwinInnovation/cmake-project-version-action@v1.0
+
+      - name: Set deploy name
+        id: strings
+        shell: bash
+        run: >
+          echo "deploy-name=GEMS${{ steps.get_version.outputs.version }}" >> "$GITHUB_OUTPUT"
+
+      - name: Set deploy dir
+        id: strings2
+        shell: bash
+        run: |
+          echo "deploy-output-dir=${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-activate-base: false
+          channels: conda-forge, defaults
+          channel-priority: true
+
+      - name: Configuring Conda Environment
+        run: |
+          conda config --set always_yes yes --set changeps1 no
+          conda config --add channels conda-forge
+          conda install conda-devenv
+          conda devenv
+
+      - name: Building, Testing & Installing GEMSGUI
+        if: matrix.os != 'windows-latest'
+        shell: bash -l {0}
+        run: |
+          conda activate GEMSGUI
+          mkdir .build && cd .build
+          cmake -GNinja .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ steps.strings2.outputs.deploy-output-dir }}
+          ninja
+          ninja install
+
+      - name: Check deploy
+        run: |
+          cd ${{ github.workspace }}
+          ls
+          cp -r "${{ github.workspace }}/Resources" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/gem-selektor.app/Contents"
+          cp "${{ github.workspace }}/Resources/rungems3.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+          cp "${{ github.workspace }}/Resources/README.md"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-${{ steps.strings.outputs.deploy-name }}
+          path: ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
+

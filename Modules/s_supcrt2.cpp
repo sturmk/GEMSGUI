@@ -1020,7 +1020,7 @@ double TSupcrt::dalLVS(double D, double T, double P, double alpha)
 }
 
 //--------------------------------------------------------------------//
-// translate parametrs into users units and load they into tprops.
+// translate parametrs into users units and load them into tprops.
 void TSupcrt::dimLVS(int isat, int itripl, double theta, double T, double *Pbars,
                      double *dL, double *dV, WPROPS *www, int epseqn)
 {
@@ -1050,6 +1050,11 @@ void TSupcrt::dimLVS(int isat, int itripl, double theta, double T, double *Pbars
     betab   = th.betaw / 1.0e1;
 
     if ( approximatelyEqual( fabs(theta), 1.0e0) )
+    {
+        dkgm3 = sa.DH2O;
+        www->Surtenw = 0.0e0;
+    } else
+    if (T > cr->Tc ) // only below critical T we have two phases DM 23.07.2024
     {
         dkgm3 = sa.DH2O;
         www->Surtenw = 0.0e0;
@@ -1380,7 +1385,7 @@ void TSupcrt::Supcrt_H2O( double TC, double *P )
     aSpc.itripl=1;
     // 01.06.2016
     double psat = PsHGK(TC + 273.15)*10.0;
-    if( approximatelyZero( fabs( *P ) ) || aSpc.on_sat_curve || fabs(*P -  psat) <  1.e-4*psat) // || aSpc.on_sat_curve || fabs(*P -  psat) < 1.e-9* psat added 01.06.2016
+    if (( approximatelyZero( fabs( *P ), 1e-5 ) || aSpc.on_sat_curve || fabs(*P -  psat) <  1.e-4*psat) && TC <= cr->Tc - 273.15e0) // || aSpc.on_sat_curve || fabs(*P -  psat) < 1.e-9* psat added 01.06.2016, fix 06.11.2025
     { // set only T
         aSpc.isat=1;
         aSpc.iopt=1;
