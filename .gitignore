@@ -3,6 +3,7 @@ Resources/help/gems3help.qhc
 Resources/visor.data/visobj.dat
 Resources/visor.data/visor.dat
 /tools
+/tmp*
 /gems3gui.pro.user
 /gems3gui.pro.user.*
 /gems3gui.pro.user.2.5pre1
@@ -11,4 +12,5 @@ Docs/.directory
 *.bak
 build
 .vs
+/gems3gui_with_gems3k_source.pro.user
 
