@@ -78,10 +78,11 @@ jobs:
           name: windows-${{ steps.strings.outputs.deploy-name }}
           path: ${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}
 
-      - name: Create zip archive for GitHub release
+      - name: Create zip archive (Windows)
+        shell: pwsh
         run: |
-          cd ${{ github.workspace }}
-          zip -r ${{ steps.strings2.outputs.deploy-output-name }} ${{ steps.strings.outputs.deploy-name }}
+          Compress-Archive -Path "${{ steps.strings.outputs.deploy-name }}" -DestinationPath "windows-${{ steps.strings.outputs.deploy-name }}.zip"
+
       
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
