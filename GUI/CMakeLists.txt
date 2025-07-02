@@ -26,6 +26,11 @@ if(BUILD_SHARED_LIBS)
     target_link_libraries(GEMSGUI PUBLIC zmq GEMS3K::GEMS3K)
     target_link_libraries(GEMSGUI PUBLIC Qt6::Widgets Qt6::Core Qt6::Gui Qt6::PrintSupport Qt6::Charts Qt6::Svg Qt6::Help Qt6::Sql)
 
+    install(TARGETS GEMSGUI
+       BUNDLE  DESTINATION .
+       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+       LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    )
 endif()
 
 # Check if a static library is to be built
@@ -42,4 +47,10 @@ if(BUILD_STATIC_LIBS)
        target_compile_definitions(GEMSGUI-static PUBLIC USE_SPDLOG_PRECOMPILED)
        target_link_libraries(GEMSGUI-static PUBLIC spdlog::spdlog )
    endif()
+
+   install(TARGETS GEMSGUI-static
+      BUNDLE  DESTINATION .
+      RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    )
 endif()

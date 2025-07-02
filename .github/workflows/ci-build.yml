@@ -2,7 +2,7 @@ name: ci-build
 on:
   push:
     branches:
-      - no_client_mode1
+      - Improve_releases
       - master
   pull_request:
     branches:
@@ -19,7 +19,7 @@ jobs:
         os:
           - ubuntu-latest
           - windows-latest
-          - macos-13
+          - macos-latest
         include:
           - os: ubuntu-latest
             conda_platform: linux-64
@@ -27,7 +27,7 @@ jobs:
           - os: windows-latest
             conda_platform: win-64
             artifact_name: gemsgui-windows
-          - os: macos-13
+          - os: macos-latest
             conda_platform: osx-64
             artifact_name: gemsgui-macos
 
