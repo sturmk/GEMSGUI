@@ -45,10 +45,14 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Currently is not setup to produce a dynamic library using MSVC, only static
-if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
-    set(BUILD_SHARED_LIBS OFF)
-else()
-    set(BUILD_STATIC_LIBS OFF)
+#if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
+#    set(BUILD_SHARED_LIBS OFF)
+#else()
+#    set(BUILD_STATIC_LIBS OFF)
+#endif()
+
+if(BUILD_APP)
+   set(BUILD_STATIC_LIBS ON)
 endif()
 
 # Set libraries to be compiled with position independent code mode (i.e., fPIC option in GNU compilers)

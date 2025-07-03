@@ -13,9 +13,9 @@ set_target_properties(gem-selektor PROPERTIES
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
-  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static libzmq GEMS3K::GEMS3K-static)
+  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static GEMS3K::GEMS3K-static)
 else()
-  target_link_libraries (gem-selektor PRIVATE GEMSGUI)
+  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static )
 endif()
 
 install(TARGETS gem-selektor
