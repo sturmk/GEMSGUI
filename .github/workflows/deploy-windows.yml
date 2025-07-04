@@ -2,7 +2,7 @@ name: deploy-windows
 on:
   push:
     branches:
-      - Improve_releases
+      - Improve_releases1
   release:
     types:
       - published
