@@ -32,6 +32,6 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    std::cout << "finished convert" << std::endl;
+    std::cout << "finished generation" << std::endl;
     return 0;
 }
