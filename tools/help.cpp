@@ -42,7 +42,6 @@ int HelpConfigurator::readDir(const std::string& resources_dir)
     for (auto& element : object_data) {
         obj_keywds.insert(element["label"]);
     }
-    //gems_logger->info("objects {}", dump(files));
 
     if (!fs::exists(html_path) || !fs::is_directory(html_path)) {
         Error( resources_dir, "Error: Directory does not exist or is not a directory." );
@@ -53,7 +52,6 @@ int HelpConfigurator::readDir(const std::string& resources_dir)
         if (fs::is_regular_file(entry.status())) {
             if (entry.path().extension() == ".html") {
                 std::string file_name = entry.path().filename().string();
-                gems_logger->debug("file {}", file_name);
                 get_hrefs(entry.path().string(), file_name);
                 files.insert(file_name);
             }
