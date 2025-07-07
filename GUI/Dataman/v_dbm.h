@@ -55,7 +55,7 @@ protected:
 
 public:
     TDBKey(unsigned char nRkflds,const unsigned char* rkfrm );
-    TDBKey(fstream& f);
+    TDBKey(std::fstream& f);
     TDBKey( const TDBKey& dbKey );
     virtual ~TDBKey();
     void check();
@@ -125,7 +125,7 @@ protected:
 
 public:
     TDBKeyList( unsigned char nRkflds, const unsigned char* rkfrm );
-    TDBKeyList( fstream& f );
+    TDBKeyList( std::fstream& f );
     ~TDBKeyList();
     void check_i(uint i);
 
@@ -168,7 +168,7 @@ public:
 
     //--- Manipulation key
     void PutKey(uint i);
-    void RecKey(uint i, string& kbuf );
+    void RecKey(uint i, std::string& kbuf );
 
     //--- reset class
     void initnew();
@@ -239,7 +239,7 @@ protected:
     void opfils();
     int scanfile( uint nF, int& fPos, int& fLen,
 	    GemDataStream& inStream, GemDataStream& outStream);
-    void fromCFG(fstream& f);
+    void fromCFG(std::fstream& f);
     bool dbChangeAllowed( uint nf, bool ifRep=false );
 
 public:
@@ -251,9 +251,9 @@ public:
     TDataBase( size_t nrt, const char* name, bool Rclose, bool isDel,
                int nOf, unsigned char Nobj, int filesNum,
                unsigned char nRkflds, const unsigned char* rkfrm );
-    TDataBase( fstream& f );
+    TDataBase( std::fstream& f );
     ~TDataBase();
-    void toCFG( fstream& f );
+    void toCFG( std::fstream& f );
     void AddFile(const std::string& path);
     void DelFile(const std::string& path);
     void updateJsonOD(int frstOD, int lastOD)
@@ -281,7 +281,7 @@ public:
     {
         return ind.KeyLen();
     }
-    void RecKey( uint i, string& kbuf )
+    void RecKey( uint i, std::string& kbuf )
     {
         ind.RecKey(i,kbuf);
     }
@@ -417,8 +417,8 @@ public:
     ~DataBaseList();
 
     void Init();
-    void fromCFG( fstream& f );
-    void toCFG(fstream& f);
+    void fromCFG( std::fstream& f );
+    void toCFG(std::fstream& f);
 
     //--- Selectors
     int Find(const char* keywd);

@@ -87,7 +87,7 @@ vfKeyEdit(QWidget* par, const char* title, unsigned int iRt, const char* key=0);
 std::string
 vfKeyProfile( QWidget* par, const char* caption, int iRt,
               bool& chAqGas, bool& addFiles, bool& remake,
-              string& key_templ,
+              std::string& key_templ,
               int& recalc_all, int& genGEMS3k, int& makeCalc  );
 
 std::string
@@ -206,7 +206,7 @@ bool vfLookupDialogSet(QWidget* wpar, char flags[6],
                 double Tai[4], double Pai[4] );
 
 void vfPhaseInfo(QWidget* wpar, bool system, int xph, std::string phname,
-                 vector<int>& xdclist, vector<std::string>& dcnames, int xdc );
+                 std::vector<int>& xdclist, std::vector<std::string>& dcnames, int xdc );
 
 
 //class TObject;

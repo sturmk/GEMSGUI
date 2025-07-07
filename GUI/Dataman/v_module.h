@@ -45,7 +45,7 @@ class TSubModule
     // friend TCModuleImp;
 
 private:
-    string state;
+    std::string state;
 
     TSubModule(const TSubModule&);
     const TSubModule& operator=(const TSubModule&);
@@ -54,7 +54,7 @@ protected:
     uint nRT;
     uint startKeyEdit;
     bool contentsChanged;     // needs to save
-    string iconFileName;
+    std::string iconFileName;
 
     // Events part
     virtual void CloseWin();
@@ -134,7 +134,7 @@ public:
     void Show(QWidget* parent, const char *str=nullptr, bool viewmode=false );
 
     void Update(bool force=true);
-    virtual const string& GetString()
+    virtual const std::string& GetString()
     {
         return state;
     }
@@ -147,7 +147,7 @@ public:
 
 
     //-- Module manipulation
-    virtual string  GetKeyofRecord( const char* /*oldKey*/, const char* /*strTitle*/,
+    virtual std::string  GetKeyofRecord( const char* /*oldKey*/, const char* /*strTitle*/,
                                      int /*keyType*/ )
     { return"";}
 
@@ -193,10 +193,10 @@ protected:
 
     TDataBase* db;
     int nQ;                // number of DB structures
-    string Filter;
+    std::string Filter;
 
     TCStringArray aFldKeysHelp;      // string help of fields
-    string start_title;
+    std::string start_title;
 
     virtual void Setup();
     virtual bool EvClose();
@@ -298,8 +298,8 @@ public:
     virtual void MakeQuery();
 
     //-- Module manipulation
-    virtual string  GetKeyofRecord(const char *oldKey, const char *strTitle, int keyType);
-    virtual string  makeKeyFilter();
+    virtual std::string  GetKeyofRecord(const char *oldKey, const char *strTitle, int keyType);
+    virtual std::string  makeKeyFilter();
     virtual bool  testKeyFilter();
     const char *getFilter()
     {
