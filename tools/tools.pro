@@ -15,9 +15,13 @@ INCLUDEPATH   += "/usr/local/include/GEMS3K"
 DEPENDPATH   += "/usr/local/include/GEMS3K"
 LIBS += -lGEMS3K
 
-HEADERS	 += config.h
+#HEADERS	 += config.h
 
-SOURCES	+=  config.cpp \
-    ini2json.cpp
+#SOURCES	+=  config.cpp \
+#    ini2json.cpp
 
 
+HEADERS	 += help.h
+
+SOURCES	+=  help.cpp \
+    qhp-generator.cpp
