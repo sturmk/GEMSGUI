@@ -47,7 +47,7 @@ protected:
     std::set<std::string> images;
     std::set<std::string> files;
 
-    void get_hrefs( std::string file, std::string file_name);
+    void get_hrefs(const std::string& file, const std::string& file_name);
     void u_getline(std::istream& is, std::string& str, const std::string& end);
     void add_name(const std::string& ref, const std::string& file_name );
     void add_img(const std::string& ref);

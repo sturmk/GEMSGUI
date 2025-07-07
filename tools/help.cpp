@@ -54,7 +54,7 @@ int HelpConfigurator::readDir(const std::string& resources_dir)
             if (entry.path().extension() == ".html") {
                 std::string file_name = entry.path().filename().string();
                 gems_logger->debug("file {}", file_name);
-                get_hrefs(entry.path(), file_name);
+                get_hrefs(entry.path().string(), file_name);
                 files.insert(file_name);
             }
         }
@@ -78,15 +78,14 @@ void HelpConfigurator::u_getline(std::istream& is, std::string& str, const std::
 }
 
 // read all reference from file
-void HelpConfigurator::get_hrefs(std::string file, std::string file_name)
+void HelpConfigurator::get_hrefs(const std::string& file, const std::string& file_name)
 {
     char ch;
     std::fstream f_in(file, std::ios::in);
     std::string ref;
 
     if( !f_in.good() ) {
-        file += " Fileopen error";
-        Error("HelpConfigurator", file);
+        Error("HelpConfigurator", file+" Fileopen error");
         return;
     }
 
