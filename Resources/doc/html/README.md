@@ -10,7 +10,7 @@ There are two configuration files provided: `gems3helpconfig.toc`  and `gems3hel
 
 File `gems3helpconfig.toc` contains an XML code describing what the GEMS Help viewer shows in the "Contents" tab.
 * To change "Contents", edit this file.
-* To remove an upper-level section, locate it (it begins with the <section> and ends with the </section> and delete it or move in another place in the file. This has no effect on the actual content of the help database, only on access through the "Contents" tab.
+* To remove an upper-level section, locate it (it begins with the `<section>` and ends with the `</section>` and delete it or move in another place in the file. This has no effect on the actual content of the help database, only on access through the "Contents" tab.
 * To add a lower-level entry for a (sub)section called "Title text" pointing to "link" (file or anchor name), add a line  `<section title="Title text" ref="link"> </section> ` at the appropriate level of hierarchy
 * To delete an entry, locate it and delete the whole line (from `<section `... to `</section>`). 
 
@@ -54,7 +54,7 @@ find / -name qhelpgenerator 2>/dev/null
 ```
 
 
-## Test Changes
+### Test Changes
 
 To test the generated collection file independently of GEMS, cd in the directory with the help database and start the 
 Qt Assistant program by a command line like:
@@ -72,32 +72,33 @@ and start GEM-Selektor.
 ### To do 
 
 * Resources/doc/html/gems_tutorial.html   not resolved links
-../../g_litref.html#1999PARAPP
-../../gdb_rkey.html#dbm_SysEq
-../../KSExamp/casrco3.html
-../../GEMS-Linux-USREF.html#P6880
-../../g_litref.html#%5B1995ROB/HEM%5D
-../../g_litref.html#%5B1987PLU/BUS%5D
-../../g_litref.html#%5B1987PLU/BUS%5D
-../../g_litref.html#%5B1987PLU/BUS%5D
-../../g_litref.html#%5B1994NOR/MUN%5D
-../../g_litref.html#%5B1987PLU/BUS%5D
-../../KSExamp/casrco3.html
-../../g_litref.html#%5B1987PLU/BUS%5D
-../../g_litref.html#%5B1994NOR/MUN%5D
-../../g_litref.html#%5B1987PLU/BUS%5D
-../../g_litref.html#%5B1995ROB/HEM%5D
-../../g_litref.html#%5B1995ROB/HEM%5D
-../../gmscript.html
-../../gems_ipm.html
-../../gemstart.html#SIDEBAR_1
+
+  ../../g_litref.html#1999PARAPP
+  ../../gdb_rkey.html#dbm_SysEq
+  ../../KSExamp/casrco3.html
+  ../../GEMS-Linux-USREF.html#P6880
+  ../../g_litref.html#%5B1995ROB/HEM%5D
+  ../../g_litref.html#%5B1987PLU/BUS%5D
+  ../../g_litref.html#%5B1987PLU/BUS%5D
+  ../../g_litref.html#%5B1987PLU/BUS%5D
+  ../../g_litref.html#%5B1994NOR/MUN%5D
+  ../../g_litref.html#%5B1987PLU/BUS%5D
+  ../../KSExamp/casrco3.html
+  ../../g_litref.html#%5B1987PLU/BUS%5D
+  ../../g_litref.html#%5B1994NOR/MUN%5D
+  ../../g_litref.html#%5B1987PLU/BUS%5D
+  ../../g_litref.html#%5B1995ROB/HEM%5D
+  ../../g_litref.html#%5B1995ROB/HEM%5D
+  ../../gmscript.html
+  ../../gems_ipm.html
+  ../../gemstart.html#SIDEBAR_1
 
 * Resources/doc/html/gems_tutorial.html   not resolved links
-../../ge_howto.html#PXXXX
-../../g_litref.html#1999PAR/APP
-../../g_litref.html#1997KAR/CHU
-../../GEMS-Linux-USREF.html#P6880
 
+  ../../ge_howto.html#PXXXX
+  ../../g_litref.html#1999PAR/APP
+  ../../g_litref.html#1997KAR/CHU
+  ../../GEMS-Linux-USREF.html#P6880
 
 Last updated by SD on 07.07.2025
  
