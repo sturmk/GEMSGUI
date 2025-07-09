@@ -231,7 +231,7 @@ void TDataBase::getndx( uint nF )
       Error(  Path, "Index file open error");
     //   f.read( (char *)&dh, sizeof(VDBhead) );
     dh.read (f);
-    ind.GetKeyList_i( nF, dh.nRec, f);
+    ind.GetKeyList_i( nF, dh.nRec, f, Path);
 }
 
 // get record length in the PDB file

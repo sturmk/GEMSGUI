@@ -163,7 +163,7 @@ public:
     int  findx( const char *key );
     size_t  xlist( const char *pattern );
     void PutKeyList( uint nF, GemDataStream& f);
-    void GetKeyList_i( uint nF,int nRec, GemDataStream& f );
+    void GetKeyList_i( uint nF,int nRec, GemDataStream& f, const std::string& file_name );
     void delfile( uint nF );
 
     //--- Manipulation key
