@@ -3,13 +3,19 @@ qt_add_executable(gem-selektor  main.cpp)
 
 set_target_properties(gem-selektor PROPERTIES
     # WIN32_EXECUTABLE TRUE
+    MACOSX_BUNDLE_GUI_IDENTIFIER ch.psi.gems3
+    MACOSX_BUNDLE_COPYRIGHT  "Copyright (c) 2004-2025 GEMS Development Team"
+    MACOSX_BUNDLE_ICON_FILE gems3.icns
+    MACOSX_BUNDLE_INFO_STRING "GEM-Selektor package for geochemical modeling"
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
 )
 
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
-  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static libzmq GEMS3K::GEMS3K-static)
+  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static GEMS3K::GEMS3K-static)
 else()
-  target_link_libraries (gem-selektor PRIVATE GEMSGUI)
+  target_link_libraries (gem-selektor PRIVATE GEMSGUI-static )
 endif()
 
 install(TARGETS gem-selektor

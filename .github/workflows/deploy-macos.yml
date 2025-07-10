@@ -2,7 +2,7 @@ name: deploy-macos
 on:
   push:
     branches:
-      - no_client_mode1
+      - Improve_releases1
   release:
     types:
       - published
@@ -70,7 +70,7 @@ jobs:
           cd ${{ github.workspace }}
           ls
           cp -r "${{ github.workspace }}/Resources" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/gem-selektor.app/Contents"
-          cp "${{ github.workspace }}/Resources/rungems3.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+          cp "${{ github.workspace }}/Resources/rungems3-mac.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/rungems3.sh"
           cp "${{ github.workspace }}/Resources/README.md"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
 
       - name: Upload artifact for deployment job
