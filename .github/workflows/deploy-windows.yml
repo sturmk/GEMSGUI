@@ -2,7 +2,7 @@ name: deploy-windows
 on:
   push:
     branches:
-      - Improve_releases1
+      - psinagra2020
   release:
     types:
       - published

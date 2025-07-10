@@ -2,7 +2,7 @@ name: ci-build
 on:
   push:
     branches:
-      - Improve_releases
+      - psinagra2020
       - master
   pull_request:
     branches:
