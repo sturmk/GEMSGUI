@@ -12,7 +12,7 @@ elseif (APPLE)
     set(MACOSX_BUNDLE_ICON_FILE gems3.icns)
 
     # And the following tells CMake where to find and install the file itself.
-    set(app_icon_macos "${CMAKE_CURRENT_SOURCE_DIR}/Resources/gems3.icns")
+    set(app_icon_macos "${PROJECT_SOURCE_DIR}/Resources/gems3.icns")
     set_source_files_properties(${app_icon_macos} PROPERTIES
            MACOSX_PACKAGE_LOCATION "Resources")
 
