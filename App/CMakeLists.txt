@@ -24,6 +24,9 @@ install(TARGETS gem-selektor
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/gem-selektor.desktop DESTINATION share/applications)
+install(FILES ${PROJECT_SOURCE_DIR}/Resources/gem-selektor.png DESTINATION share/icons)
+
 if(DEFINED ENV{CONDA_PREFIX})
 
 message(STATUS "conda path: $ENV{CONDA_PREFIX}")
