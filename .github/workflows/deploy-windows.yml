@@ -2,7 +2,7 @@ name: deploy-windows
 on:
   push:
     branches:
-      - psinagra2020
+      - fix_icons
   release:
     types:
       - published
