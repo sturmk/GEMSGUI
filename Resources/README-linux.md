@@ -23,25 +23,17 @@ Version: currently 3.10.0.
 
 ### How to run GEM-Selektor
 
-Before you can start GEM-Selektor from command line for the first time, please edit the file rungems3.bat(.sh) (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
+* To run Qt GEM-Selektor application, execute the following:
 
-Suppose that you have installed GEMS3 in "D:\MyWork\Modeling\GEMS3.10.0". Open the rungems3.bat file in text editor; the file begins with the following lines:
+```sh
+./rungems3.sh
+```
 
-	echo off
-        rem  Change the path to the actual location of gem-selektor executable and Resources
-        cd ./Gems3-app/bin
-	...
+* For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
 
-Now, edit the cd (change directory) command argument in the third line to point to the actual location: 
+* To launch the icon for the GEM-Selector application, edit the desktop entry file `./Gems3-app/share/applications/gem-selektor.desktop` that contains a description of the application that includes information about its icon. Change the path to the actual location of gem-selektor executable. The files are typically executable and can be placed in specific directories like  `~/.local/share/applications`. 
+Then copy folder `./Gems3-app/share` to  `~/.local`
 
-	echo off
-	rem  Change the path to the actual location of GEMS3 executable and Resources
-        cd D:\MyWork\Modeling\Gems3-app\bin
-	...
-
-Then leave one of the launch commands (they all contain gem-selektor.exe) without "rem" at the beginning, and close other commands with "rem". Save the batch file. Now you can start GEM-Selektor by typing "rungems3.bat" in the command line. 
-
-To create a Windows desktop shortcut to launch GEM-Selektor from this location, right-click on the desktop; choose "New" "Shortcut", and set there the path to gem-selektor.exe file: "D:\MyWork\Modeling\Gems3-app\bin\gem-selektor.exe -c", and finish. 
 
 DISCLAIMER: thermodynamic data bases in test modeling projects provided in this installation are provisional and undocumented. The Development Team accepts no liability of any kind for any losses or inconveniences that may result from use of the data provided in modeling projects for testing and educational purposes. No guarantee is given that the input data in test projects are, in fact, accurate. 
 
