@@ -517,6 +517,7 @@ void TMulti::multi_sys_ph()
 //    ja=0;
 
     int JB, JE=0;
+    phase_descr.clear();
     for( kk=0, /*FI=0,*/ k=-1, /*jb=0,*/ je=0; kk<mup->Fi; kk++ )
     {
         JB = JE;
@@ -540,6 +541,7 @@ void TMulti::multi_sys_ph()
         goto PARLOAD;
 
         aPH->TryRecInp( mup->SF[kk], crt, 0 );  // Now reading all phase records!
+        phase_descr.push_back(char_array_to_string( aPH->php->name, MAXFORMULA));
 
         // New stuff for TKinMet
         // Resetting vector of TSolMod pointers to avoid problems with activity coeffs

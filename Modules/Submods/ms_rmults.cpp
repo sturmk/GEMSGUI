@@ -433,6 +433,7 @@ TEST2:
             continue;
         kk++;
         memcpy( mu.SF[kk], aPhaseList[k].c_str(), PH_RKLEN );
+
         mu.Ll[kk] = 0;
         for( j=0; j<aPH->php->nDC; j++ )
         {
@@ -572,6 +573,8 @@ void TRMults::PHmake()
         item = mu.DCF;
     }
     ii=0;
+    phase_descr.clear();
+    decomp_descr.clear();
     for( kk=0; kk<mu.Fi; kk++ ) // phase list
     {
         jj=ii;
@@ -581,6 +584,7 @@ void TRMults::PHmake()
         mu.PHC[kk] = aPH->php->PphC;
         // test and load � DCOMP and REACDC
         fillValue( dkey, '\0', MAXRKEYLEN );
+        phase_descr.push_back(char_array_to_string( aPH->php->name, MAXFORMULA)+" (phase)");
 
         for( ; jj<ii; jj++ )
         {
@@ -603,11 +607,13 @@ void TRMults::PHmake()
             {
                 TDComp::pm->TryRecInp( dkey, crt, 0 );
                 Formula = aDC->dcp->form;
+                decomp_descr.push_back(char_array_to_string(aDC->dcp->name, MAXFORMULA)+" (dcomp)");
             }
             if( aPH->php->DCS[ij] == SRC_REACDC )
             {
                 TReacDC::pm->TryRecInp( dkey, crt, 0 );
                 Formula = aRC->rcp->form;
+                decomp_descr.push_back(char_array_to_string(aRC->rcp->name, MAXFORMULA)+" (react)");
             }
             /* dependent component read! */
             mu.DCS[jj] =  aPH->php->DCS[ij]; /* mu[p].DCS[jj]; */

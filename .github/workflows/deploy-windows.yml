@@ -2,7 +2,7 @@ name: deploy-windows
 on:
   push:
     branches:
-      - fix_icons
+      - fix_icons1
   release:
     types:
       - published
