@@ -607,13 +607,15 @@ void TRMults::PHmake()
             {
                 TDComp::pm->TryRecInp( dkey, crt, 0 );
                 Formula = aDC->dcp->form;
-                decomp_descr.push_back(char_array_to_string(aDC->dcp->name, MAXFORMULA)+" (DComp)");
+                decomp_descr.push_back(char_array_to_string(aDC->dcp->form, MAXFORMULA)+"\n"+
+                                       char_array_to_string(aDC->dcp->name, MAXFORMULA)+" (DComp)");
             }
             if( aPH->php->DCS[ij] == SRC_REACDC )
             {
                 TReacDC::pm->TryRecInp( dkey, crt, 0 );
                 Formula = aRC->rcp->form;
-                decomp_descr.push_back(char_array_to_string(aRC->rcp->name, MAXFORMULA)+" (ReacDC)");
+                decomp_descr.push_back(char_array_to_string(aRC->rcp->form, MAXFORMULA)+"\n"+
+                                       char_array_to_string(aRC->rcp->name, MAXFORMULA)+" (ReacDC)");
             }
             /* dependent component read! */
             mu.DCS[jj] =  aPH->php->DCS[ij]; /* mu[p].DCS[jj]; */
