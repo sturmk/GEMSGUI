@@ -199,6 +199,7 @@ void TMulti::multi_sys_dc()
         for( ii=0; ii<mup->L; ii++ )
             aFo[ii].Stm_line( mup->N, A+ii*mup->N, (char *)mup->SB, mup->Val );
         aFo.clear();
+        decomp_descr.clear();
         // loading data for dependent components
         for( L=0, j=-1, jj=0; jj<mup->L; jj++ )
         {
@@ -214,6 +215,7 @@ void TMulti::multi_sys_dc()
             pm.Y[j] = 0.0;
             pm.XY[j] = 0.0;
             memcpy( pm.SM[j], mup->SM[jj]+MAXSYMB+MAXDRGROUP, MAXDCNAME );
+            decomp_descr.push_back(TRMults::sm->component_description(jj));
             if( j < syp->Ls )
                 memcpy( pm.SM2[j], mup->SM[jj]+MAXSYMB+MAXDRGROUP, MAXDCNAME );
             if( j < syp->Ls && j >= syp->Ls - syp->Lsor)
@@ -541,7 +543,7 @@ void TMulti::multi_sys_ph()
         goto PARLOAD;
 
         aPH->TryRecInp( mup->SF[kk], crt, 0 );  // Now reading all phase records!
-        phase_descr.push_back(char_array_to_string( aPH->php->name, MAXFORMULA));
+        phase_descr.push_back(char_array_to_string( aPH->php->name, MAXFORMULA)+" (Phase)");
 
         // New stuff for TKinMet
         // Resetting vector of TSolMod pointers to avoid problems with activity coeffs

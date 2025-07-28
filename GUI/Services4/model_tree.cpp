@@ -313,6 +313,12 @@ QString TTreeModel::getDescription( int nO, int N) const
     case o_musm:
         desc = TRMults::sm->component_description(N);
         break;
+    case o_wd_sf:
+        desc = TMulti::sm->phase_description(N);
+        break;
+    case o_wd_sm:
+        desc = TMulti::sm->component_description(N);
+        break;
 // Result
 	case o_wo_wx:
           switch( aObj[o_wi_dcc]->GetStringEmpty(N)[0])
