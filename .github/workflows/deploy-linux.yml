@@ -78,7 +78,7 @@ jobs:
           ldd "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/Gems3-app/bin/gem-selektor"
           
       - name: Clean up system libraries
-  	run: |
+        run: |
           rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libc.so.6
           rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libm.so.6
           rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libdl.so.2
