@@ -1,9 +1,4 @@
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    message(STATUS "Configuring OpenGL for Linux")
-    set(OpenGL_GL_PREFERENCE "GLVND")
-    find_package(OpenGL REQUIRED)
-    message(STATUS "OpenGL found: ${OPENGL_gl_LIBRARY}")
-endif()
+
 
 if(USE_THERMOFUN MATCHES ON)
   find_package(ThermoFun REQUIRED)
