@@ -7,7 +7,9 @@ channels:
 dependencies:
   - cmake
   - git
-  - gxx_linux-64  # [linux]
+  - gcc_linux-64  # [linux] 
+  - gxx_linux-64  # [linux] 
+  - sysroot_linux-64  # [linux] 
   - make  # [unix]
   - ninja
   - 7zip  # [win]

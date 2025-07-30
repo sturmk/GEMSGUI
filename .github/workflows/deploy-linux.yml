@@ -61,6 +61,9 @@ jobs:
         run: |
           conda activate GEMSGUI
           mkdir .build && cd .build
+          export CC=$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-gcc
+          export CXX=$CONDA_PREFIX/bin/x86_64-conda-linux-gnu-g++
+          export CONDA_BUILD_SYSROOT=$CONDA_PREFIX/x86_64-conda-linux-gnu/sysroot
           cmake -GNinja .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${{ steps.strings2.outputs.deploy-output-dir }}
           ninja
           ninja install
@@ -69,6 +72,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           ls
+          ldd ./gem-selektor
           cp -r "${{ github.workspace }}/Resources" "${{ steps.strings2.outputs.deploy-output-dir }}"
           cp "${{ github.workspace }}/Resources/rungems3.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
           cp "${{ github.workspace }}/Resources/README-linux.md"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/README.md"
