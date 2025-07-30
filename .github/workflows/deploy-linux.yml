@@ -79,11 +79,11 @@ jobs:
           
       - name: Clean up system libraries
   	run: |
-    	  rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libc.so.6
-    	  rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libm.so.6
-    	  rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libdl.so.2
-    	  rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/librt.so.1
-    	  rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libpthread.so.0
+          rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libc.so.6
+          rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libm.so.6
+          rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libdl.so.2
+          rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/librt.so.1
+          rm -f ${{ steps.strings2.outputs.deploy-output-dir }}/../lib/libpthread.so.0
           
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
