@@ -1,15 +1,9 @@
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     message(STATUS "Configuring OpenGL for Linux")
-
-    # Prefer modern GLVND over legacy GL
     set(OpenGL_GL_PREFERENCE "GLVND")
-
-    # Find OpenGL
     find_package(OpenGL REQUIRED)
-
     message(STATUS "OpenGL found: ${OPENGL_gl_LIBRARY}")
-else()
-    message(STATUS "Skipping OpenGL configuration (not Linux)")
+
 endif
 
 
