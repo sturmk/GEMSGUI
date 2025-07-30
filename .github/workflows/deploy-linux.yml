@@ -2,7 +2,7 @@ name: deploy-linux
 on:
   push:
     branches:
-      - fix_icons1
+      - fix_icons
   release:
     types:
       - published

@@ -6,20 +6,18 @@ GEM-Selektor v.3 - the interactive package for thermodynamic modelling of aquati
 
 ## How to run GEM-Selektor
 
-* To run GEM-Selektor application, open a terminal and execute the following:
+* To run GEM-Selektor appilcation for the first time execute:
 
-(ensure that the file is executable by right-click -> Properties -> Premissions "Allow executing file as a program")
-
-```sh
-./rungems3.sh
+```
+rungems3.bat
 ```
 
-If you have issue with starting GEMS due to segmentation faut (conflicting Linux system libraries) it is recommended that you build GEM-Selesktor from its source code as documented here: https://github.com/gemshub/GEMSGUI?tab=readme-ov-file#building-using-conda
+If windows will show you a warning message "Windows protected your PC", click "More info" and "Run anyway" (This will only be asked the first time).
 
-* For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
+Once GEMS is running you can pin the program to the Task bar by right-clicking on its icon (on the task bar) and chose pin to task bar. After you close GEMS, the script will create a Start Menu and Desktop shortcut. After the first run you can always start gems using its shortcut. 
 
-* To add the icon for the GEM-Selector application to the launcher, edit the desktop entry file `./Gems3-app/share/applications/gem-selektor.desktop` that contains a description of the application that includes information about its icon. Change the path to the actual location of gem-selektor executable. The files are typically executable and can be placed in specific directories like  `~/.local/share/applications`. 
-Then copy folder `./Gems3-app/share` to  `~/.local`
+* For more details about command line parameters, see into `rungems3.bat`. Edit the file `rungems3.bat` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
+Then leave one of the launch commands (they all contain gem-selektor.exe) without "rem" at the beginning, and close other commands with "rem". Save the batch file. Now you can start GEM-Selektor by typing "rungems3.bat" in the command line. 
 
 ## Briefly about GEM-Selektor v.3
 

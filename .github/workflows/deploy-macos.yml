@@ -2,7 +2,7 @@ name: deploy-macos
 on:
   push:
     branches:
-      - fix_icons1
+      - fix_icons
   release:
     types:
       - published
@@ -71,7 +71,7 @@ jobs:
           ls
           cp -r "${{ github.workspace }}/Resources" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/gem-selektor.app/Contents"
           cp "${{ github.workspace }}/Resources/rungems3-mac.sh" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/rungems3.sh"
-          cp "${{ github.workspace }}/Resources/README.txt"  "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}"
+          cp "${{ github.workspace }}/Resources/README-macos.txt" "${{ github.workspace }}/${{ steps.strings.outputs.deploy-name }}/README.txt"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
