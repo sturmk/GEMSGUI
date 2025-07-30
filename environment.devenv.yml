@@ -17,9 +17,6 @@ dependencies:
   #- thermofun>=0.4.3
   - cppzmq
   #- mesa-libgl-devel-cos7-x86_64 # [unix]
-  - libglvnd  # [unix]
-  - libglx  # [unix]
-  - libegl  # [unix]
   - qt6-main=6.8.2
   - qt6-charts=6.8.2
   #- eigen=3.4.0
