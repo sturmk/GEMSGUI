@@ -6,7 +6,7 @@ GEM-Selektor v.3 - the interactive package for thermodynamic modelling of aquati
 
 ## How to run GEM-Selektor
 
-* To run GEM-Selektor application, open a terminal and execute the following:
+* To run GEM-Selektor application (Linux x86_64), open a terminal and execute the following:
 
 (ensure that the file is executable by right-click -> Properties -> Premissions "Allow executing file as a program")
 
@@ -14,7 +14,7 @@ GEM-Selektor v.3 - the interactive package for thermodynamic modelling of aquati
 ./rungems3.sh
 ```
 
-If you have issue with starting GEMS due to segmentation faut (conflicting Linux system libraries) it is recommended that you build GEM-Selesktor from its source code as documented here: https://github.com/gemshub/GEMSGUI?tab=readme-ov-file#building-using-conda
+If you have issues with starting GEMS due to segmentation fault, conflicting Linux system libraries, unsupported distro, etc. it is recommended that you build GEM-Selesktor from its source code as documented here: https://github.com/gemshub/GEMSGUI?tab=readme-ov-file#building-using-conda
 
 * For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
 
