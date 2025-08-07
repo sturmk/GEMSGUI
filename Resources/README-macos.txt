@@ -4,29 +4,36 @@ Welcome to GEM-Selektor v3 program!
 
 GEM-Selektor v.3 - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K chemical solver.
 
-## How to run GEM-Selektor
 
-* To run GEM-Selektor application, execute the the gem-selektor.app
+    **How to run GEM-Selektor**
 
-At the first attempt to start gem-selektor.app results in security alert about "unidentified developer", which requires to go in Settings Privacy & Security and give a special permission to run the program. 
-Go to Settings / Privacy and Security, scroll down, and confirm to run gem-selector.app 
+    * To run GEM-Selektor application, execute the the gem-selektor.app
 
-Another way to open a blocked app is to locate the app in a Finder window. 
+    !!! warning "Unidentified developer"
+    
+        At the first attempt to start gem-selektor.app results in a security alert about **unidentified developer**, which requires to go in Settings Privacy & Security and give a special permission to run the program. Go to Settings / Privacy and Security, scroll down, and confirm to run gem-selektor.app 
+    
+    The next runs can be started by clicking on gem-selektor.app in Finder or its index in the dock. It may be necessary to go to Settings / Privacy and Security, scroll down, and confirm to run gem-selektor.app once.
 
-    Open the Finder.
-    Locate the app (it might be in the Applications folder, or it might still be in your downloads folder).
-    Ctrl-click or right-click on the app.
-    Select Open from the resultant menu and the app will be opened anyway, and an exception will be created for opening it normally (i.e. by double-clicking) in the future.
+    !!! note "Important program folders Location - needs update for mac"  
+        The recommended installation target is the user’s home folder:  
+        **Recommended program location:** `C:\Users\<myuser>\GEMS<version>` <br>
+        **Default resources and thermodynamic database location:** <br>`C:\Users\<myuser>\GEMS<version>\Gems3-app\Resources\DB.default` <br>
+        **Default user projects location:** `C:\Users\<myuser>\Library\Gems3\projects`  
+    
+    * Alternatively you can launch a terminal (In the Finder , open the /Applications/Utilities folder, then double-click Terminal) and execute the following:
+    
+    ```sh
+    ./rungems3-mac.sh
+    ```
+    
+    * For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
 
-The next runs can be started by clicking on gem-selector.app in Finder or its index in the dock. It may be necessary to go to Settings / Privacy and Security, scroll down, and confirm to run gem-selector.app once.
+    !!! note "Compatibility"  
+        For unsupported platforms (such as macOS M1/M2), it is still possible to compile the program from source [documented :octicons-arrow-right-24: here.](https://github.com/gemshub/GEMSGUI?tab=readme-ov-file#building-using-conda)
 
-* Alternatively you can lauch a terminal (In the Finder , open the /Applications/Utilities folder, then double-click Terminal) and execute the following:
+        We would love to hear **feedback from users running GEM-Selektor on Mac M1/M2**—please let us know your experience!  
 
-```sh
-./rungems3-mac.sh
-```
-
-* For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
 
 ## Briefly about GEM-Selektor v.3
 

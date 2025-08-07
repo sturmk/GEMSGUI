@@ -4,22 +4,38 @@ Welcome to GEM-Selektor v3 program!
 
 GEM-Selektor v.3 - the interactive package for thermodynamic modelling of aquatic (geo)chemical systems by Gibbs Energy Minimization using a built-in GEMS3K chemical solver.
 
-## How to run GEM-Selektor
 
-* To run GEM-Selektor application (Linux x86_64), open a terminal and execute the following:
+    **How to run GEM-Selektor**
+    
+    * To run GEM-Selektor application (Linux x86_64), open a terminal and execute the following:
+    
+    ```sh
+    ./rungems3.sh
+    ```
+    
+    Ensure that the file is executable by right-click -> Properties -> Permissions "Allow executing file as a program".
+    
+    * For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
 
-(ensure that the file is executable by right-click -> Properties -> Premissions "Allow executing file as a program")
+    !!! warning "Error starting GEMS"
+        If the program fails to start, ensure Qt5 is installed:
+        
+        ```sh
+        sudo apt-get install qt5-default qttools5-dev libqt5svg5 libqt5help5
+        ```
+        
+        The software may not run on some Linux distributions due to library incompatibilities. If you have issues with starting GEMS due to segmentation fault, conflicting Linux system libraries, unsupported distro, etc. it is recommended that you build GEM-Selektor from its source code as [documented :octicons-arrow-right-24: here.](https://github.com/gemshub/GEMSGUI?tab=readme-ov-file#building-using-conda)
 
-```sh
-./rungems3.sh
-```
+    !!! note "Shortcut / add to application launcher"
+    
+        To add the icon for the GEM-Selector application to the launcher, edit the desktop entry file `./Gems3-app/share/applications/gem-selektor.desktop` that contains a description of the application that includes information about its icon. Change the path to the actual location of gem-selektor executable (- Right-click the shortcut, select `Properties`, and update the path). The files are typically executable and can be placed in specific directories like  `~/.local/share/applications`. Then copy the `share` folder `./Gems3-app/share` to  `~/.local`. You can also copy the `gem-selektor.desktop` file to `~/Desktop/`.
+    
+    !!! note "Important program folders Location"  
+        The recommended installation target is the user’s home folder:  
+        **Recommended program location:** `/home/<myuser>/GEMS<version>` <br>
+        **Default resources and thermodynamic database location:** <br>`/home/<myuser>/GEMS<version>/Gems3-app/Resources/DB.default` <br>
+        **Default user projects location:** `/home/<myuser>/Library/Gems3/projects`  
 
-If you have issues with starting GEMS due to segmentation fault, conflicting Linux system libraries, unsupported distro, etc. it is recommended that you build GEM-Selesktor from its source code as documented here: https://github.com/gemshub/GEMSGUI?tab=readme-ov-file#building-using-conda
-
-* For more details about command line parameters, see into `rungems3.sh`. Edit the file `rungems3.sh` (with any simple text editor) in order to ensure that GEMS3 command line parameters point to correct locations of the program resources and of modeling projects.
-
-* To add the icon for the GEM-Selector application to the launcher, edit the desktop entry file `./Gems3-app/share/applications/gem-selektor.desktop` that contains a description of the application that includes information about its icon. Change the path to the actual location of gem-selektor executable. The files are typically executable and can be placed in specific directories like  `~/.local/share/applications`. 
-Then copy folder `./Gems3-app/share` to  `~/.local`
 
 ## Briefly about GEM-Selektor v.3
 
